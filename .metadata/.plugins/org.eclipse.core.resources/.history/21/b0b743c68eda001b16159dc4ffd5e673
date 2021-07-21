@@ -1,0 +1,15 @@
+Feature: To test the helper file
+
+  Background: set up the base url
+    Given url 'http://localhost:3000'
+    And print '*****************'
+
+
+  Scenario: Get all the post in local
+    Given call read ("E:\LearningKarate\com.api.automation\src\test\java\com\api\automation\main\Helper_createpost.feature")
+    And path '/posts'
+    And header Accept = 'application/json'
+    When method get
+    And match response contains deep {"title": "creta"}
+    Then status 200
+    
